@@ -16,7 +16,6 @@
     border: 1px solid;
     border-color: 'DDDDDD';
     border-radius: 4px;
-    line-height: 80%;
     margin: 20px;
     overflow: hidden;
     padding: 15px;
@@ -44,7 +43,7 @@
     color: #999999
 }
 
-.heading:hover {
+.heading>a:hover {
     color: #007BFF;
 }
 
