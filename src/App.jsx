@@ -1,17 +1,13 @@
 import { useState } from 'react'
 import './App.css'
 import BlogPostList from './BlogPostList.jsx'
-
-
-// const posts = [{key: 'post1', id: 'post1', title: 'Moon Landing', summary: 'Two astronauts walked on the moon, and it was dope.', date: '1969-07-20', url: './posts/post1'},
-//   {key: 'post2', id: 'post2', title: 'This extremely long title is meant to test how much these titles need to be cropped for mobile.', summary: 'summary2', date: 'date2', url: './posts/post2'},
-//   {key: 'post3', id: 'post3', title: 'title3', summary: 'summary3', date: 'date3', url: './posts/post3'}
-// ]
+import { Link } from 'react-router'
 
 function App({posts}) {
     return (
         <main>
             <h1>Hello World</h1>
+            <Link to='/post-form'>Add Post</Link>
             <BlogPostList posts={posts}></BlogPostList>
         </main>
     )

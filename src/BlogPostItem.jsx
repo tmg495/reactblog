@@ -10,10 +10,11 @@ function BlogPostItem(post) {
     });
     return <li className="post">
         <h2 className='heading hidden'>
-            <Link to={`/blog-post/${post.id}`} >{post.title}</Link>
+            <Link to={`/blog-post/${post.id}`}>{post.title}</Link>
         </h2>
         <p className='summary'>{post.summary}</p>
         <p className='date'>Published on {formattedDate}</p>
+        <Link to={`/post-form/${post.id}`}>Edit</Link>
     </li>
 }
 

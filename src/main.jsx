@@ -6,11 +6,22 @@ import { BrowserRouter, Routes, Route } from 'react-router'
 import BlogPostDetail from './BlogPostDetail.jsx'
 import { useParams } from 'react-router'
 import posts from './posts.js'
+import BlogPostForm from './BlogPostForm.jsx'
 
 const Dispatcher = function () {
     let params = useParams();
     let post = posts.find((post) => post.id==params.postid);
     return <BlogPostDetail {...post}/>
+}
+
+const PostEditor = function () {
+    let params = useParams();
+    let post = posts.find((post) => post.id==params.postid);
+    return <BlogPostForm {...{post, onSubmit}}/>
+}
+
+const onSubmit = function ({ title, content, author, date }) {
+    console.log('Hello, world')
 }
 
 createRoot(document.getElementById('root')).render(
@@ -20,6 +31,10 @@ createRoot(document.getElementById('root')).render(
       <Route 
         path="/blog-post/:postid" 
         element={<Dispatcher/>}
+      />
+      <Route 
+        path='/post-form/:postid' 
+        element={<PostEditor />}
       />
     </Routes>
   </BrowserRouter>,
