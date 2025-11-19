@@ -3,17 +3,24 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router'
-import Post1 from "./posts/post1.jsx"
-import Post2 from "./posts/post2.jsx"
-import Post3 from "./posts/post3.jsx"
+import BlogPostDetail from './BlogPostDetail.jsx'
+import { useParams } from 'react-router'
+import posts from './posts.js'
+
+const Dispatcher = function () {
+    let params = useParams();
+    let post = posts.find((post) => post.id==params.postid);
+    return <BlogPostDetail {...post}/>
+}
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/posts/post1" element={<Post1 />}/>
-      <Route path="/posts/post2" element={<Post2 />}/>
-      <Route path="/posts/post3" element={<Post3 />}/>
+      <Route path="/" element={<App posts={posts}/>} />
+      <Route 
+        path="/blog-post/:postid" 
+        element={<Dispatcher/>}
+      />
     </Routes>
   </BrowserRouter>,
 )
