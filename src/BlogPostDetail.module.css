@@ -48,6 +48,15 @@ ul {
     display: none;
 }
 
+.edit {
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    padding: 5px;
+    float: right;
+}
+
 @media (min-width: 769px) {
     .blogPostDetail {
         padding: 20px;

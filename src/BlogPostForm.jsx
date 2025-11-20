@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './BlogPostForm.module.css';
 import DatePicker from "react-datepicker";
 import SunEditor from "suneditor-react";
+import { Link, useNavigate } from 'react-router'
 import "react-datepicker/dist/react-datepicker.css";
 import "suneditor/dist/css/suneditor.min.css";
 
@@ -11,14 +12,15 @@ const BlogPostForm = ({ post, onSubmit }) => {
     const [author, setAuthor] = useState(post?.author || '');
     const [date, setDate] = useState(post?.date || '');
     const [errors, setErrors] = useState({});
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const newErrors = {};
-        if (!title) newErrors.title = 'Required';
-        if (!content) newErrors.content = 'Required';
-        if (!author) newErrors.author = 'Required';
-        if (!date) newErrors.date = 'Required';
+        if (!title) newErrors.title = 'Title is required';
+        if (!content) newErrors.content = 'Post must have a body';
+        if (!author) newErrors.author = 'Author name required';
+        if (!date) newErrors.date = 'Enter a date';
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
             } else {
@@ -59,11 +61,20 @@ const BlogPostForm = ({ post, onSubmit }) => {
         </div>
 
         <div className={styles.formGroup}>
-        <SunEditor setContents={content} onChange={setContent} />
+        <SunEditor 
+            setContents={content} 
+            onChange={setContent} 
+        />
         {errors.content && <p className={styles.error}>{errors.content}</p>}
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit" onClick={() => {
+            if (errors.length == 0) {
+                navigate('/')
+            }}
+            }>Submit</button>
+        <br></br>
+        <Link to='/'>Home</Link>
         </form>
     );
 };

@@ -21,7 +21,9 @@ const PostEditor = function () {
 }
 
 const onSubmit = function ({ title, content, author, date }) {
-    console.log('Hello, world')
+    let id = title.replaceAll(' ', '').toLowerCase();
+    
+    console.log(id)
 }
 
 createRoot(document.getElementById('root')).render(

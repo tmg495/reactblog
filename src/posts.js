@@ -9,7 +9,7 @@ const posts = [
     },
     {
         id: 'post2', 
-        title: 'This extremely long title is meant to test how much these titles need to be cropped for mobile.', 
+        title: 'This extremely long title is meant to test how much these titles need to be cropped for mobile', 
         content: `<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum delectus deleniti molestiae perspiciatis. Doloremque voluptate vitae omnis laudantium nulla! A perferendis aliquid sunt voluptate eos? Neque asperiores laudantium ratione a?</p>
         <p>Here are the rules:</p>
         <li>Don't touch my stuff.</li><li>That's it.</li>
@@ -20,7 +20,7 @@ const posts = [
     },
     {
         id: 'post3', 
-        title: 'This extremely long title is meant to test how much these titles need to be cropped for mobile.', 
+        title: 'This extremely long title is meant to test how much these titles need to be cropped for mobile', 
         content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum delectus deleniti molestiae perspiciatis. Doloremque voluptate vitae omnis laudantium nulla! A perferendis aliquid sunt voluptate eos? Neque asperiores laudantium ratione a?",
         author: 'Perry the Plagiarist',
         summary: 'This is just some lorem ipsum', 

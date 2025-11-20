@@ -14,7 +14,6 @@ function BlogPostItem(post) {
         </h2>
         <p className='summary'>{post.summary}</p>
         <p className='date'>Published on {formattedDate}</p>
-        <Link to={`/post-form/${post.id}`}>Edit</Link>
     </li>
 }
 

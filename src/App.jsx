@@ -7,7 +7,7 @@ function App({posts}) {
     return (
         <main>
             <h1>Hello World</h1>
-            <Link to='/post-form'>Add Post</Link>
+            <Link to='/post-form/new'>Add Post</Link>
             <BlogPostList posts={posts}></BlogPostList>
         </main>
     )
