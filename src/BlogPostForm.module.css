@@ -20,17 +20,27 @@
     border-radius: 4px;
 }
 
-.date-picker>* {
+.datePicker {
+    display: block;
     min-width: 100%;
+}
+
+
+.datePicker input{
     border-style: solid;
     border-color: #cccccc;
     border-width: 1px;
     border-radius: 4px;
+    min-width: 100%;
 }
 
 .error {
     font-size: 12px;
     color: #ff0000;
+}
+
+.popper {
+    z-index: 8;
 }
 
 button[type='submit'] {
@@ -43,18 +53,17 @@ button[type='submit'] {
 
 @media (min-width: 769px) {
     .formGroup {
+        display: flex;
         margin: 20px;
     }
 
     .formGroup>label {
-        display: inline;
         font-size: 16px;
         margin-bottom: 0px;
         margin-right: 10px;
     }
 
     .formGroup>input {
-        display: inline;
         font-size: 16px;
         min-width: auto;
     }
@@ -66,5 +75,13 @@ button[type='submit'] {
     button[type='submit'] {
         min-width: auto;
         float: right;
+    }
+
+    .datePicker {
+        min-width: auto;
+    }
+
+    .datePicker input {
+        min-width: auto;
     }
 }
