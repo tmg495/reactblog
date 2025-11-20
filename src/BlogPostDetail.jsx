@@ -6,7 +6,6 @@ const BlogPostDetail = ({ title, content, author, date, id }) => {
     if (!title || !content || !author || !date) {
         return <p>Blog post not found.</p>;
     }
-    console.log(id)
     const formattedDate = new Date(date).toLocaleDateString('en-US', {
         month: 'long',
         day: 'numeric',

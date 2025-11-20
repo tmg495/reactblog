@@ -13,6 +13,8 @@ const BlogPostForm = ({ post, onSubmit }) => {
     const [date, setDate] = useState(post?.date || '');
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
+    
+    const buttonText = post == undefined ? "Post" : "Update"
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -72,7 +74,7 @@ const BlogPostForm = ({ post, onSubmit }) => {
             if (errors.length == 0) {
                 navigate('/')
             }}
-            }>Submit</button>
+            }>{buttonText}</button>
         <br></br>
         <Link to='/'>Home</Link>
         </form>
