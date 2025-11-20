@@ -55,6 +55,7 @@ button[type='submit'] {
     .formGroup {
         display: flex;
         margin: 20px;
+        justify-content: center;
     }
 
     .formGroup>label {
