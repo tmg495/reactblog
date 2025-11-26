@@ -32,7 +32,6 @@ const BlogPostDetail = ({ title, content, author, date, id }) => {
     return (
         <div className={styles.blogPostDetail}>
             <div><Link to={`/post-form/${id}`} className={styles.edit}>Edit Post</Link></div>
-            <br></br>
             <ConfirmationDialog
                 isOpen={dialogOpen}
                 onClose={handleClose}
