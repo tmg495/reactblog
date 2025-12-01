@@ -35,6 +35,11 @@
     text-decoration: none;
 }
 
+.heading>a:focus {
+    outline-color: blue;
+    outline-style: solid;
+}
+
 .summary {
     font-size: 14px;
     color: #666666;

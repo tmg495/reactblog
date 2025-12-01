@@ -1,6 +1,7 @@
 .navBar {
     background-color: #003366;
     display: flex;
+    top: 0px;
     justify-content: space-between;
     padding: 10px;
     align-items: center;
@@ -18,19 +19,17 @@
 }
 
 .mobileMenu {
-    position: absolute;
+    position: relative;
     background-color: white;
     display: flex;
     flex-direction: column;
     min-width: 100%;
-    top: 60px;
-    bottom: 0px;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
 }
 
 .mobileMenu.isOpen {
-    transform: translateX(0%);
+    transform: translateX(-5%);
 }
 
 .mobileMenu>* {
@@ -38,6 +37,21 @@
     padding: 20px;
     text-decoration: none;
     color: black;
+    display: none;
+}
+
+.mobileMenu>*:focus {
+    outline-color: blue;
+    outline-style: solid;
+}
+
+.mobileMenu.isOpen>* {
+    display: block;
+}
+
+.hamburger:focus {
+    outline-color: blue;
+    outline-style: solid;
 }
 
 @media (min-width: 769px) {
