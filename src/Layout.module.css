@@ -1,0 +1,25 @@
+.header {
+    height: 60px;
+}
+
+.main {
+    padding: 10px;
+}
+
+.footer {
+    background-color: #003366;
+    color: white;
+    font-size: 14px;
+}
+
+@media (min-width: 769px) {
+    .main {
+        padding: 20px;
+        max-width: 1200px;
+    }
+
+    .footer{
+        height: 40px;
+        text-align: center;
+    }
+}

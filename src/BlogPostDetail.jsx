@@ -45,8 +45,6 @@ const BlogPostDetail = ({ title, content, author, date, id }) => {
             <DeleteButton 
                 onClick={handleDelete}
             />
-            <br></br>
-            <Link to='/'>Home</Link>
         </div>
     );
 };

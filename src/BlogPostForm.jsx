@@ -82,8 +82,6 @@ const BlogPostForm = ({ post, onSubmit }) => {
                 }
             }
             }>{buttonText}</button>
-            <br></br>
-            <Link to='/'>Home</Link>
         </form>
     );
 };
