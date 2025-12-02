@@ -4,6 +4,7 @@ function BlogPostList({posts}){
     if (posts.length == 0) {
         return <p className="error">No blog posts available</p>
     }
+    
     return (
         <ul className="postList">
             {posts.map(post=>

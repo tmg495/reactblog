@@ -21,7 +21,7 @@ const PostEditor = function () {
     return <BlogPostForm {...{post, onSubmit}}/>
 }
 
-const onSubmit = function ({ title, content, author, date }) {
+const onSubmit = function ( title, content, author, date ) {
     let id = title.replaceAll(' ', '').toLowerCase();
     
     console.log(id)

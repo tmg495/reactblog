@@ -26,7 +26,7 @@ const BlogPostForm = ({ post, onSubmit }) => {
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
         } else {
-            onSubmit({ title, content, author, date });
+            onSubmit( title, content, author, date );
         }
     };
 

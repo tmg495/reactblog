@@ -3,11 +3,17 @@ import styles from './BlogPostDetail.module.css';
 import { Link } from 'react-router'
 import DeleteButton from './DeleteButton';
 import ConfirmationDialog from './ConfirmationDialog';
+// import comments from './comments.js';
+import CommentList from './CommentList.jsx'
+import CommentForm from './CommentForm.jsx'
 
 const BlogPostDetail = ({ title, content, author, date, id }) => {
     if (!title || !content || !author || !date) {
         return <p>Blog post not found.</p>;
     }
+
+    const [comments, setComments] = useState([]);
+
     const formattedDate = new Date(date).toLocaleDateString('en-US', {
         month: 'long',
         day: 'numeric',
@@ -29,6 +35,19 @@ const BlogPostDetail = ({ title, content, author, date, id }) => {
         console.log('confirm delete')
     };
 
+    const handleNewComment = (name, text) => {
+        let newComments = [...comments, {
+            key: comments.length+1,
+            postID: id,
+            name: name,
+            date: Date.now(),
+            text: text,
+            avatar: '',
+        }];
+        setComments(newComments);
+    }
+
+
     return (
         <div className={styles.blogPostDetail}>
             <div><Link to={`/post-form/${id}`} className={styles.edit}>Edit Post</Link></div>
@@ -45,6 +64,9 @@ const BlogPostDetail = ({ title, content, author, date, id }) => {
             <DeleteButton 
                 onClick={handleDelete}
             />
+            <h2>Comments</h2>
+            <CommentList comments={comments} id={id}/>
+            <CommentForm isLoggedIn={false} userName={'Bobert'} onSubmit={handleNewComment}/>
         </div>
     );
 };
