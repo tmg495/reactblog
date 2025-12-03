@@ -1,7 +1,10 @@
 import BlogPostItem from "./BlogPostItem"
 
-function BlogPostList({displayedPosts}){
+function BlogPostList({displayedPosts, query}){
     if (displayedPosts.length == 0) {
+        if (query != '') {
+            return <p className="error">No results found for {query}</p>
+        }
         return <p className="error">No blog posts available</p>
     }
     
@@ -13,8 +16,10 @@ function BlogPostList({displayedPosts}){
                     id={post.id}
                     title={post.title}
                     summary={post.summary}
+                    content={post.content}
                     date={post.date}
                     url={post.url}
+                    query={query}
                 />
             )}
         </ul>

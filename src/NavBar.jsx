@@ -1,28 +1,48 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import styles from './NavBar.module.css';
 import SearchBar from './SearchBar';
 
-const NavBar = ({handleSearch}) => {
+const NavBar = ({handleSearch, query, setQuery}) => {
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
+    let location=useLocation().pathname;
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
+    const closeSearchBar = () => {
+        setIsSearchBarOpen(false);
+        setQuery('');
+        handleSearch('');
+    }
+
     return (
         <div>
             <nav className={styles.navBar}>
-                <Link to="/" className={styles.logo}>Blog Application</Link>
+                <Link 
+                    to="/" 
+                    className={styles.logo} 
+                    onClick={closeSearchBar}
+                >Blog Application</Link>
 
-                <SearchBar onSubmit={handleSearch}/>
 
                 <div className={styles.links}>
-                    <Link to="/">Home</Link>
+                    <Link to="/" onClick={closeSearchBar}>Home</Link>
                     <Link to='/post-form/new'>Add Post</Link>
                     <Link to="/about">About</Link>
                 </div>
+
+                <SearchBar 
+                    onSubmit={handleSearch} 
+                    query={query} 
+                    setQuery={setQuery}
+                    isSearchBarOpen={isSearchBarOpen}
+                    setIsSearchBarOpen={setIsSearchBarOpen}
+                    searchButtonVisible={location=='/'}
+                />
 
                 <button
                 className={styles.hamburger}

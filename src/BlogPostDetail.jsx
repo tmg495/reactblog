@@ -7,7 +7,7 @@ import ConfirmationDialog from './ConfirmationDialog';
 import CommentList from './CommentList.jsx'
 import CommentForm from './CommentForm.jsx'
 
-const BlogPostDetail = ({ title, content, author, date, id }) => {
+const BlogPostDetail = ({ title, content, author, date, id, handleConfirm }) => {
     if (!title || !content || !author || !date) {
         return <p>Blog post not found.</p>;
     }
@@ -31,10 +31,6 @@ const BlogPostDetail = ({ title, content, author, date, id }) => {
         setDialogOpen(false);
     };
 
-    const handleConfirm = () => {
-        console.log('confirm delete')
-    };
-
     const handleNewComment = (name, text) => {
         let newComments = [...comments, {
             key: comments.length+1,
@@ -54,7 +50,7 @@ const BlogPostDetail = ({ title, content, author, date, id }) => {
             <ConfirmationDialog
                 isOpen={dialogOpen}
                 onClose={handleClose}
-                onConfirm={handleConfirm}
+                onConfirm={()=>handleConfirm(id)}
             />
             <h1 className={styles.title}>{title}</h1>
             <p className={styles.author}><span className={styles.hidden}>By</span> {author}</p>

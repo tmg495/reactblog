@@ -2,13 +2,17 @@ import {useState} from 'react'
 import styles from './NavBar.module.css'
 import {useDebouncedCallback} from 'use-debounce'
 
-const SearchBar = ({onSubmit}) => {
-    const [query, setQuery] = useState('')
-    const debouncedOnSearch = useDebouncedCallback(val=>onSubmit(val), 1000)
+const SearchBar = ({onSubmit, query, setQuery, isSearchBarOpen, setIsSearchBarOpen, searchButtonVisible}) => {
 
+    const debouncedOnSearch = useDebouncedCallback(val=>onSubmit(val), 1000)
+    
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSubmit(query);
+        if (isSearchBarOpen) {
+            onSubmit(query);
+        } else {
+            setIsSearchBarOpen(true);
+        }
     }
 
     const handleChange = (e) => {
@@ -17,12 +21,16 @@ const SearchBar = ({onSubmit}) => {
     }
 
     return (
-        <form className={styles.search} onSubmit={handleSubmit}>
+        <form className={`${styles.search} ${searchButtonVisible? '': styles.hidden}`} onSubmit={handleSubmit}>
             <input
                 value={query}
                 onChange={handleChange}
+                placeholder='Search posts...'
+                className={`${isSearchBarOpen? styles.isOpen: styles.isClosed}`}
             />
-            <button type='submit'>&#x1F50E;&#xFE0E;</button>
+            <button 
+                type='submit'
+            >&#x1F50E;&#xFE0E;</button>
         </form>
     )
 }

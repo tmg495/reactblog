@@ -54,6 +54,23 @@
     outline-style: solid;
 }
 
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.isClosed {
+    display: none;
+}
+
+.isOpen {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
 @media (min-width: 769px) {
     .links {
         display: flex;
@@ -67,5 +84,9 @@
 
     .hamburger {
         display: none;
+    }
+
+    .isClosed {
+        display: block;
     }
 }
