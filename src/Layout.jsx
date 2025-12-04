@@ -12,7 +12,7 @@ const Layout = ({ children, handleSearch, query, setQuery }) => {
                 {children}
             </main>
             <footer className={styles.footer}>
-                <p>&copy; 2023 BlogApp. All rights reserved.</p>
+                <p>&copy; 2025 BlogApp. All rights reserved.</p>
             </footer>
         </div>
     );

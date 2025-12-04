@@ -78,6 +78,10 @@ button[type='submit'] {
     display: none;
 }
 
+.hamburgerClosed {
+    display: none;
+}
+
 .isOpen {
     flex-grow: 2;
 }
@@ -116,5 +120,9 @@ button[type='submit'] {
 
     .isClosed:focus {
         outline-color: blue;
+    }
+
+    .searchButton {
+        display: none;
     }
 }

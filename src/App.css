@@ -55,9 +55,6 @@
 }
 
 @media (min-width: 769px) {
-    #root{
-        min-width: 300px;
-    }
     .postList {
         grid-template-columns: 1fr 1fr;
         /* max-width: 100%; */
