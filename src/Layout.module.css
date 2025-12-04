@@ -1,9 +1,16 @@
+#root {
+    min-width: 100%;
+    min-height: 100%;
+}
+
 .header {
     height: 60px;
 }
 
 .main {
     padding: 10px;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .footer {

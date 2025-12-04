@@ -9,9 +9,10 @@ const SearchBar = ({onSubmit, query, setQuery, isSearchBarOpen, setIsSearchBarOp
     const handleSubmit = (e) => {
         e.preventDefault();
         if (isSearchBarOpen) {
-            onSubmit(query);
+            setIsSearchBarOpen(false)
         } else {
             setIsSearchBarOpen(true);
+            onSubmit(query);
         }
     }
 
@@ -21,7 +22,7 @@ const SearchBar = ({onSubmit, query, setQuery, isSearchBarOpen, setIsSearchBarOp
     }
 
     return (
-        <form className={`${styles.search} ${searchButtonVisible? '': styles.hidden}`} onSubmit={handleSubmit}>
+        <form className={`${isSearchBarOpen ? styles.closeSearch : styles.search} ${searchButtonVisible ? '' : styles.hidden}`} onSubmit={handleSubmit}>
             <input
                 value={query}
                 onChange={handleChange}
@@ -30,7 +31,8 @@ const SearchBar = ({onSubmit, query, setQuery, isSearchBarOpen, setIsSearchBarOp
             />
             <button 
                 type='submit'
-            >&#x1F50E;&#xFE0E;</button>
+                className={`${isSearchBarOpen ? styles.closeButton : styles.searchButton}`}
+            >{`${isSearchBarOpen ? '✕' : '🔎︎'}`}</button>
         </form>
     )
 }

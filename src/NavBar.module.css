@@ -59,16 +59,40 @@
     align-items: center;
 }
 
+.searchButton {
+    font-size: 12px;
+}
+
+.closeButton {
+    font-size: 12px;
+    background-color: red !important;
+}
+
+
+button[type='submit'] {
+    margin-top: 0px;
+    min-width: auto;
+}
+
 .isClosed {
     display: none;
 }
 
 .isOpen {
-    display: block;
+    flex-grow: 2;
 }
 
 .hidden {
     display: none;
+}
+
+.isOpen:focus{
+    outline-color: blue;
+}
+
+.closeSearch {
+    display: flex;
+    flex-grow: 2;
 }
 
 @media (min-width: 769px) {
@@ -88,5 +112,9 @@
 
     .isClosed {
         display: block;
+    }
+
+    .isClosed:focus {
+        outline-color: blue;
     }
 }

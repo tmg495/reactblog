@@ -24,7 +24,7 @@ const NavBar = ({handleSearch, query, setQuery}) => {
             <nav className={styles.navBar}>
                 <Link 
                     to="/" 
-                    className={styles.logo} 
+                    className={`${isSearchBarOpen ? styles.isClosed : styles.logo}`}
                     onClick={closeSearchBar}
                 >Blog Application</Link>
 
@@ -45,7 +45,7 @@ const NavBar = ({handleSearch, query, setQuery}) => {
                 />
 
                 <button
-                className={styles.hamburger}
+                className={`${isSearchBarOpen ? styles.isClosed : styles.hamburger}`}
                 onClick={toggleMobileMenu}
 
                 aria-label="Toggle menu"

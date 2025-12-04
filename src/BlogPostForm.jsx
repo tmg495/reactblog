@@ -27,6 +27,7 @@ const BlogPostForm = ({ post, onSubmit }) => {
             setErrors(newErrors);
         } else {
             onSubmit( title, content, author, date );
+            navigate('/')
         }
     };
 
@@ -76,12 +77,7 @@ const BlogPostForm = ({ post, onSubmit }) => {
                 {errors.content && <p className={styles.error}>{errors.content}</p>}
             </div>
 
-            <button type="submit" onClick={() => {
-                if (errors.length == 0) {
-                    navigate('/')
-                }
-            }
-            }>{buttonText}</button>
+            <button type="submit">{buttonText}</button>
         </form>
     );
 };
